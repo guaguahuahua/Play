@@ -6,7 +6,6 @@ import com.xjtu.structure.SeqPNode;
 /**
  * 测试顺序优先级队列
  * @author 22847
- *
  */
 public class MySeqPQueue {
 
