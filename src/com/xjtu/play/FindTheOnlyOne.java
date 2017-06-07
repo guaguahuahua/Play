@@ -13,8 +13,8 @@ public class FindTheOnlyOne {
 		}
 		System.out.println(sum);
 		char []source={'a','a','b','b','c','d','d','e','e','f'};
-		Character ch='c';
-		Character ci='f';
+		char ch='c';
+		char ci='f';
 		System.out.println("c_binary:"+Integer.toBinaryString(ch));
 		System.out.println("f_binary:"+Integer.toBinaryString(ci));
 		System.out.println(Integer.toBinaryString(ch^ci));
