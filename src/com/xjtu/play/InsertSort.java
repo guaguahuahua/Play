@@ -13,7 +13,7 @@ public class InsertSort {
 			}
 			nums[j+1]=tmp;
 		}
-		show(nums);
+//		show(nums);
 	}
 	public static void show(int []nums){
 		for(int i=0;i<nums.length;i++){

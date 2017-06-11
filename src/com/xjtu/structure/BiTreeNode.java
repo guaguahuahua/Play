@@ -8,7 +8,5 @@ package com.xjtu.structure;
 public class BiTreeNode {
 	public int value;
 	public BiTreeNode left;
-	public BiTreeNode right;
-	
-	
+	public BiTreeNode right;	
 }

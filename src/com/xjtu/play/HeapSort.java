@@ -14,8 +14,8 @@ public class HeapSort {
 			nums[nums.length-1-i]=tmp;
 			createHeap(nums,0,nums.length-i-1);	//这块给的参数是0，原因是只有堆顶出现变化，所以只要从堆顶进行一一修正即可
 		}
-		System.out.println("排序之后：");
-		show(nums);
+//		System.out.println("排序之后：");
+//		show(nums);
 	}
 	/**
 	 * 创建大顶堆，
@@ -42,7 +42,6 @@ public class HeapSort {
 				j=2*position+1; //j索引到自己的孩子位置
 			}
 		}
-		
 	}
 	/**
 	 * 堆数组进行堆初始化
@@ -53,7 +52,7 @@ public class HeapSort {
 		for(int i=(nums.length-1)/2;i>=0;i--){
 			createHeap(nums,i,nums.length);
 		}
-		show(nums);
+//		show(nums);
 	}
 	public static void show(int []nums){
 		for(int i=0;i<nums.length;i++){
@@ -63,8 +62,8 @@ public class HeapSort {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		int []nums={64,34,25,87,12,38,56,46,14,77,92,23};
-		int []nums={10,50,32,5,76,9,40,88};
+		int []nums={64,34,25,87,12,38,56,46,14,77,92,23};
+//		int []nums={10,50,32,5,76,9,40,88};
 //		init(nums);
 		heapSort(nums);
 	}

@@ -12,7 +12,6 @@ public class ShellSort {
 		for(int total=0;total<distance.length;total++){//总共循环的次数，主要是由步长的集合来控制的
 			span=distance[total];//获取第一个步长
 			for(int i=0;i<span;i++){//遍历所有的组数
-				
 				for(int j=i;j<nums.length-span;j+=span){//进行直接插入排序
 					int tmp=nums[j+span];
 					int k=j;
@@ -23,10 +22,9 @@ public class ShellSort {
 					nums[k+span]=tmp;
 				}
 			}
-			show(nums);	
-			System.out.println();
+//			show(nums);	
+//			System.out.println();
 		}
-
 	}
 	public static void show(int []nums){
 		for(int i=0;i<nums.length;i++){
