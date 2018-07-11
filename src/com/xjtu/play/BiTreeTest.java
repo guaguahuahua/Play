@@ -1,34 +1,34 @@
 package com.xjtu.play;
 
-import com.xjtu.structure.BiTreeNode;
+import com.xjtu.structure.Node;
 
 public class BiTreeTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BiTreeNode root=new BiTreeNode();
+		Node root=new Node();
 		root.left=null;
 		root.right=null;
 		root.value=100;
 		BiTree tree=new BiTree();
 		//左孩子插入测试
-		BiTreeNode r=tree.insertLeftNode(root, 90);
+		Node r=tree.insertLeftNode(root, 90);
 		System.out.print(r.left+", "+r.value+", "+r.right);
 		System.out.println("查看根节点的情况");
 		System.out.println(root.left+","+root.value+", "+root.right);
 		//右孩子插入测试
-		BiTreeNode r1=tree.insertRightNode(root, 80);
+		Node r1=tree.insertRightNode(root, 80);
 		System.out.println(r1.left+", "+r1.value+", "+r1.right);
-		BiTreeNode r2=tree.insertLeftNode(r, 70);
-		BiTreeNode r3=tree.insertRightNode(r, 60);
-		BiTreeNode r4=tree.insertLeftNode(r1, 50);
+		Node r2=tree.insertLeftNode(r, 70);
+		Node r3=tree.insertRightNode(r, 60);
+		Node r4=tree.insertLeftNode(r1, 50);
 		//先序遍历
 		System.out.println("先序遍历");
 		tree.preTraverse(root);
 		System.out.println();
 		//删除左子树
 //		tree.deleteLeftTree(root);
-		BiTreeNode r5=tree.search(root, 50);
+		Node r5=tree.search(root, 50);
 //		System.out.println(r5);
 		System.out.println(r5.left+", "+r5.value+", "+r5.right);
 		//测试中序遍历

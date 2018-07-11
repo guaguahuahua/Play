@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Stack;
 
-import com.xjtu.structure.BiTreeNode;
+import com.xjtu.structure.Node;
 
 public class BiTree {
 
@@ -15,11 +15,11 @@ public class BiTree {
 	 * @param value 插入节点的值
 	 * @return 返回插入节点的引用
 	 */
-	public static BiTreeNode insertLeftNode(BiTreeNode curr, int value){
+	public static Node insertLeftNode(Node curr, int value){
 		if(curr==null){//如果当前节点为空或者是不存在，那么返回为空
 			return null;
 		}
-		BiTreeNode lnode=new BiTreeNode();//新建一个二叉链节点，
+		Node lnode=new Node();//新建一个二叉链节点，
 		lnode.value=value; //给插入节点赋值
 		lnode.right=null; //让插入节点的右节点置空
 		lnode.left=curr.left; //让插入节点的左节点指向当前节点的左节点
@@ -32,11 +32,11 @@ public class BiTree {
 	 * @param value
 	 * @return
 	 */
-	public static BiTreeNode insertRightNode(BiTreeNode curr,int value){
+	public static Node insertRightNode(Node curr,int value){
 		if(curr==null){
 			return null;
 		}
-		BiTreeNode rnode=new BiTreeNode();
+		Node rnode=new Node();
 		rnode.value=value;
 		rnode.left=null;
 		rnode.right=curr.right;
@@ -47,7 +47,7 @@ public class BiTree {
 	 * 删除当前节点的左子树，里面包括了递归的删除
 	 * @param curr
 	 */
-	public static void deleteLeftTree(BiTreeNode curr){
+	public static void deleteLeftTree(Node curr){
 		if(curr!=null && curr.left!=null){
 			destroy(curr.left);
 		}		
@@ -57,7 +57,7 @@ public class BiTree {
 	 * 删除节点，递归的删除，
 	 * @param curr
 	 */
-	public static void destroy(BiTreeNode curr){
+	public static void destroy(Node curr){
 		if(curr!=null && curr.left!=null){
 			destroy(curr.left);
 		}
@@ -69,7 +69,7 @@ public class BiTree {
 	 * 使用先序遍历完成对二叉树的输出。
 	 * @param curr
 	 */
-	public void preTraverse(BiTreeNode curr){
+	public void preTraverse(Node curr){
 		if(curr!=null){
 			show(curr);
 			preTraverse(curr.left);
@@ -80,7 +80,7 @@ public class BiTree {
 	 * 输出函数，将遍历的当前节点的值进行输出
 	 * @param curr
 	 */
-	public static void show(BiTreeNode curr){
+	public static void show(Node curr){
 		System.out.print(curr.value+"   ");
 	}
 	/**
@@ -89,7 +89,7 @@ public class BiTree {
 	 * @param goal 要搜索的元素
 	 * @return 
 	 */
-	public static BiTreeNode search(BiTreeNode curr, int goal){
+	public static Node search(Node curr, int goal){
 		if(curr==null){
 			return null;
 		}
@@ -97,13 +97,13 @@ public class BiTree {
 			return curr;
 		}
 		if(curr.left!=null){
-			BiTreeNode left=search(curr.left, goal);
+			Node left=search(curr.left, goal);
 			if(left!=null){
 				return left;
 			}
 		}
 		if(curr.right!=null){
-			BiTreeNode right=search(curr.right, goal);
+			Node right=search(curr.right, goal);
 			if(right!=null){
 				return right;
 			}
@@ -114,7 +114,7 @@ public class BiTree {
 	 * 中序遍历整个二叉链
 	 * @param curr
 	 */
-	public static void LDRTraverse(BiTreeNode curr){
+	public static void LDRTraverse(Node curr){
 		if(curr!=null && curr.left!=null){//当前节点不为空，并且左子树不为空
 			LDRTraverse(curr.left);
 		}
@@ -127,7 +127,7 @@ public class BiTree {
 	 * 实现后序遍历
 	 * @param curr
 	 */
-	public static void LRDTraverse(BiTreeNode curr){
+	public static void LRDTraverse(Node curr){
 		if(curr!=null && curr.left!=null){
 			LRDTraverse(curr.left);
 		}
@@ -140,11 +140,11 @@ public class BiTree {
 	 *使用非递归方式完成二叉树的遍历,使用到了堆栈，其实用队列也是可以的 
 	 * @param curr
 	 */
-	public static void NoRecursionTraverse(BiTreeNode curr){
-		Stack<BiTreeNode> stack=new Stack<BiTreeNode>();
+	public static void NoRecursionTraverse(Node curr){
+		Stack<Node> stack=new Stack<Node>();
 		stack.push(curr);
 		while(!stack.isEmpty()){//如果栈不为空
-			BiTreeNode top=stack.pop();
+			Node top=stack.pop();
 			show(top);     //将栈顶元素输出
 			if(top.right!=null){//如果有左孩子
 				stack.push(top.right);//先将栈顶元素的左孩子入栈，后将栈顶元素的右孩子入栈
@@ -158,12 +158,12 @@ public class BiTree {
 	 * 使用队列完成二叉树的非递归遍历
 	 * @param curr
 	 */
-	public static void TraverseWithQueue(BiTreeNode curr){
-		Queue<BiTreeNode>queue=new ArrayDeque<BiTreeNode>();
+	public static void TraverseWithQueue(Node curr){
+		Queue<Node>queue=new ArrayDeque<Node>();
 		queue.add(curr);
 		
 		while(!queue.isEmpty()){//如果队列不是空的
-			BiTreeNode head=queue.poll();//队头元素出队
+			Node head=queue.poll();//队头元素出队
 			show(head);
 			if(head.left!=null){//出队元素有左孩子，那么将左孩子添加进队列
 				queue.add(head.left);
@@ -179,7 +179,7 @@ public class BiTree {
 	 * @param n 用来计数的变量
 	 */ 
 	public static int n=0;
-	public static int countNum(BiTreeNode curr){
+	public static int countNum(Node curr){
 		if(curr!=null){//如果当前元素不为空，那么计数器加1
 			n=n+1;
 		}
@@ -196,7 +196,7 @@ public class BiTree {
 	 * @param curr
 	 */
 	public static int l=0,r=0;
-	public static int countLayer(BiTreeNode curr){
+	public static int countLayer(Node curr){
 		if(curr!=null){//当前节点不为空，
 			if(curr.left!=null){//统计左子树的高度
 				l++;

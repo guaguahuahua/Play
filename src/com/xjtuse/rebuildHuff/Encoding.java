@@ -15,6 +15,8 @@ public class Encoding {
 		for(int i=0;i<code.length;i++){
 			code[i]=new Code();
 		}
+		//因为是从叶子节点想上寻找，所以可以避免递归，而且因为叶子节点可以计算出来
+		//比较好控制遍历的次数，
 		for(int i=0;i<leaf;i++){
 			
 			StringBuilder sb=new StringBuilder();

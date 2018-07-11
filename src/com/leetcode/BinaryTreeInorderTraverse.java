@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.xjtu.play.BiTree;
-import com.xjtu.structure.BiTreeNode;
+import com.xjtu.structure.Node;
 
 
 
@@ -15,12 +15,12 @@ public class BinaryTreeInorderTraverse {
 	 * @param root
 	 * @return
 	 */
-    public static List<Integer> inorderTraversal1(BiTreeNode root) {
+    public static List<Integer> inorderTraversal1(Node root) {
         List<Integer> result=new ArrayList<Integer>();
         LDRTraverse(root, result);
     	return result;
     }
-    public static void LDRTraverse(BiTreeNode node, List<Integer> result){
+    public static void LDRTraverse(Node node, List<Integer> result){
     	if(node!=null){
     		LDRTraverse(node.left, result);
     		result.add(node.value);
@@ -36,7 +36,7 @@ public class BinaryTreeInorderTraverse {
      * @param root
      * @return
      */
-    public static List<Integer> inorderTraversal(BiTreeNode root) {
+    public static List<Integer> inorderTraversal(Node root) {
         if(root==null){
             return new ArrayList<Integer>();
         }
@@ -50,11 +50,11 @@ public class BinaryTreeInorderTraverse {
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BiTreeNode root=new BiTreeNode();
+		Node root=new Node();
 		root.value=1;
 		BiTree tree=new BiTree();
-		BiTreeNode r1=tree.insertLeftNode(root, 2);
-		BiTreeNode r2=tree.insertRightNode(root,3);
+		Node r1=tree.insertLeftNode(root, 2);
+		Node r2=tree.insertRightNode(root,3);
 		
 		tree.insertLeftNode(r1, 4);
 		tree.insertRightNode(r1, 5);

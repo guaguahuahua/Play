@@ -1,6 +1,6 @@
 package com.xjtu.play;
 
-import com.xjtu.structure.BiTreeNode;
+import com.xjtu.structure.Node;
 
 public class BiTreeSearch {
 	/**
@@ -9,8 +9,8 @@ public class BiTreeSearch {
 	 * @param root 给定根节点，从根结点开始往下
 	 * @param node
 	 */
-	public static int insert(BiTreeNode root,BiTreeNode node){
-		BiTreeNode tmp=root;//记录root节点的上个节点位置，主要用于辅助插入
+	public static int insert(Node root,Node node){
+		Node tmp=root;//记录root节点的上个节点位置，主要用于辅助插入
 		while(root!=null){
 			tmp=root;
 			if(root.value==node.value){ //表明该节点实际已经存在了，不需要插入
@@ -36,7 +36,7 @@ public class BiTreeSearch {
 	 * @param root 二叉排序树的根节点
 	 * @return 找到返回1，否则返回0
 	 */
-	public static int search(BiTreeNode root,int value){
+	public static int search(Node root,int value){
 		
 		while(root!=null){
 			
@@ -54,7 +54,7 @@ public class BiTreeSearch {
 	 *使用DLR遍历方式
 	 * @param root
 	 */
-	public static void DLR(BiTreeNode root){
+	public static void DLR(Node root){
 		if(root!=null){
 			System.out.println("result："+root.value);
 			DLR(root.left);
